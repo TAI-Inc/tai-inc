@@ -18,6 +18,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-N5TMNW62');</script>
     <!-- End Google Tag Manager -->
+
+
+  <script>
+// Function to set the cookie with browser data and location
+function setSiteDataCookie() {
+    // Get browser data
+    const browserData = {
+        userAgent: navigator.userAgent,
+        language: navigator.language,
+        platform: navigator.platform
+    };
+
+    // Get location data (assuming geolocation is allowed by the user)
+    navigator.geolocation.getCurrentPosition(position => {
+        const locationData = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        };
+
+        // Combine browser data and location data
+        const siteData = {
+            browser: browserData,
+            location: locationData
+        };
+
+        // Set the cookie
+        document.cookie = `site_data=${JSON.stringify(siteData)}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+    });
+}
+
+// Call the function to set the cookie
+setSiteDataCookie();
+
+
+  </script>
+
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
